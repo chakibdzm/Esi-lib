@@ -1,4 +1,5 @@
 import 'package:esilib/Screens/Onboarding/Onboarding.dart';
+import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
 import 'package:flutter/material.dart';
 void main(){
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home:Onboarding(),
+      home:MyWidget(),
     );
   }
 }

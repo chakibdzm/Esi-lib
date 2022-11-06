@@ -13,6 +13,7 @@ class Signin extends StatefulWidget {
 
 class _SigninState extends State<Signin> {
   final emailPassFormKey = GlobalKey<FormState>();
+  final passFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -56,117 +57,122 @@ class _SigninState extends State<Signin> {
             
             Padding(
               padding:  EdgeInsets.symmetric(horizontal:getWidth(25) ),
-              child: TextFormField(
+              child: Form(
+                key: emailPassFormKey,
+                child: TextFormField(
 
-                style: TextStyle(
-                  fontFamily: 'GTWalsheimPro',
-                  fontWeight: FontWeight.w500,
-                  fontSize: getHeight(20),
-                  color: Colors.white,
-                ),
-
-                cursorColor: Color(0xFF9DA3B6),
-
-               validator: schoolMailValidator(),
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide(
-                      width: 1,
-                      color: Color(0xFF2F2F2),
-                    ),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(vertical: getHeight(20),
-                      horizontal: getWidth(20)),
-                  prefixIconConstraints: const BoxConstraints(maxHeight: 25),
-
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      borderSide: const BorderSide(
-                        width: 0,
-                        style: BorderStyle.none,
-                      )),
-                  fillColor:Color(0xFF2F2F2),
-                  filled: true,
-                  hintText: 'Email',
-
-                  hintStyle: TextStyle(
+                  style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
-                    fontSize: getHeight(16),
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w500,
+                    fontSize: getHeight(20),
                     color: Colors.white,
                   ),
-                  suffixIcon:
-                  Container(
-                    width: getWidth(75),
-                    height: getHeight(53),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(getHeight(20)),
+
+                  cursorColor: Color(0xFF9DA3B6),
+
+                 validator: schoolMailValidator(),
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Color(0xFF2F2F2),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: getHeight(20),
+                        horizontal: getWidth(20)),
+                    prefixIconConstraints: const BoxConstraints(maxHeight: 25),
+
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        )),
+                    fillColor:Color(0xFF2F2F2),
+                    filled: true,
+                    hintText: 'Email',
+
+                    hintStyle: TextStyle(
+                      fontFamily: 'GTWalsheimPro',
+                      fontSize: getHeight(16),
+                      fontWeight: FontWeight.w300,
                       color: Colors.white,
                     ),
-                    child: Center(child: Icon(Icons.email,color:Color(0xFF0A27E0) ,)),
-                  ),
+                    suffixIcon:
+                    Container(
+                      width: getWidth(75),
+                      height: getHeight(53),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(getHeight(20)),
+                        color: Colors.white,
+                      ),
+                      child: Center(child: Icon(Icons.email,color:Color(0xFF0A27E0) ,)),
+                    ),
 
+                  ),
                 ),
               ),
             ),
             SizedBox(height: getHeight(15),),
             Padding(
-              key: emailPassFormKey,
               padding:  EdgeInsets.symmetric(horizontal:getWidth(25) ),
-              child: TextFormField(
+              child: Form(
+                key: passFormKey,
+                child: TextFormField(
 
-                style: TextStyle(
-                  fontFamily: 'GTWalsheimPro',
-                  fontWeight: FontWeight.w500,
-                  fontSize: getHeight(20),
-                  color: Colors.white,
-                ),
-
-                cursorColor: Color(0xFF9DA3B6),
-validator: passwordValidator(),
-              obscureText: true,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide(
-                      width: 1,
-                      color: Color(0xFF2F2F2),
-                    ),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(vertical: getHeight(20),
-                      horizontal: getWidth(20)),
-                  prefixIconConstraints: const BoxConstraints(maxHeight: 25),
-
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      borderSide: const BorderSide(
-                        width: 0,
-                        style: BorderStyle.none,
-                      )),
-                  fillColor:Color(0xFF2F2F2),
-                  filled: true,
-                  hintText: 'Password',
-
-                  hintStyle: TextStyle(
+                  style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
-                    fontSize: getHeight(16),
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w500,
+                    fontSize: getHeight(20),
                     color: Colors.white,
                   ),
-                  suffixIcon:
-                  Container(
-                    width: getWidth(75),
-                    height: getHeight(53),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(getHeight(20)),
+
+                  cursorColor: Color(0xFF9DA3B6),
+validator: passwordValidator(),
+                obscureText: true,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Color(0xFF2F2F2),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(vertical: getHeight(20),
+                        horizontal: getWidth(20)),
+                    prefixIconConstraints: const BoxConstraints(maxHeight: 25),
+
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        )),
+                    fillColor:Color(0xFF2F2F2),
+                    filled: true,
+                    hintText: 'Password',
+
+                    hintStyle: TextStyle(
+                      fontFamily: 'GTWalsheimPro',
+                      fontSize: getHeight(16),
+                      fontWeight: FontWeight.w300,
                       color: Colors.white,
                     ),
-                    child: Center(child: Icon(Icons.key,color:Color(0xFF0A27E0) ,)),
-                  ),
+                    suffixIcon:
+                    Container(
+                      width: getWidth(75),
+                      height: getHeight(53),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(getHeight(20)),
+                        color: Colors.white,
+                      ),
+                      child: Center(child: Icon(Icons.key,color:Color(0xFF0A27E0) ,)),
+                    ),
 
+                  ),
                 ),
               ),
             ),
@@ -175,11 +181,13 @@ validator: passwordValidator(),
 
               onTap: () => {
 
+                      if ((emailPassFormKey.currentState!.validate()) && (passFormKey.currentState!.validate())){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        )
+                      }
 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    )
 
               },
 
