@@ -14,14 +14,16 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF0A27E0),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Suppose this is an app in your Ph_a\'s Screen page.',
+              'Hi , please tap on the Logo down there !',
               textAlign: TextAlign.center,
               style: TextStyle(
+                color: Colors.white,
                 fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
@@ -32,12 +34,9 @@ class _MyWidgetState extends State<MyWidget> {
                   height: 80,
                   width: 80,
                   child: Center(
-                    child: Text(
-                      'App Logo',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: Image.asset('assets/illustrations/Esi.png',
+                      fit: BoxFit.fitWidth,
+                    )
                   ),
                 );
               },
@@ -74,7 +73,7 @@ class _SecondPageState extends State<SecondPage> {
 
   final TextStyle initialStyle = TextStyle(
     fontSize: 30,
-    color: Colors.black,
+    color: Color(0xFF0A27E0),
     fontWeight: FontWeight.w600,
     wordSpacing: 2,
   );
@@ -156,7 +155,7 @@ class _SecondPageState extends State<SecondPage> {
               height: _a ? _height : 0,
               width: _a ? _width : 0,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color(0xFF0A27E0),
                 borderRadius: BorderRadius.circular(_a ? 0 : 99),
               ),
             ),
@@ -180,7 +179,7 @@ class _SecondPageState extends State<SecondPage> {
               height: _c ? _height : 0,
               width: _c ? _width : 0,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color(0xFF0A27E0),
                 borderRadius: BorderRadius.circular(_c ? 0 : 99),
               ),
             ),
@@ -204,7 +203,7 @@ class _SecondPageState extends State<SecondPage> {
               height: _e ? _height : 0,
               width: _e ? _width : 0,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color(0xFF0A27E0),
                 borderRadius: BorderRadius.circular(_e ? 0 : 99),
               ),
             ),
@@ -227,7 +226,7 @@ class _SecondPageState extends State<SecondPage> {
               style: _h ? initialStyle : finalStyle,
               duration: Duration(seconds: 2),
               curve: Curves.fastLinearToSlowEaseIn,
-              child: Text("APP NAME"),
+              child: Text("ESI LIB"),
             )
                 : SizedBox(),
           ),
