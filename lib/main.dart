@@ -1,3 +1,6 @@
+import 'package:esilib/Screens/DevScreen/Dev.dart';
+import 'package:esilib/Screens/DevScreen/tet.dart';
+import 'package:esilib/Screens/Home/Home.dart';
 import 'package:esilib/Screens/Onboarding/Onboarding.dart';
 import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
 import 'package:flutter/material.dart';

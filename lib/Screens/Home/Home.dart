@@ -1,3 +1,6 @@
+import 'package:animations/animations.dart';
+import 'package:esilib/Screens/DevScreen/Dev.dart';
+import 'package:esilib/Screens/DevScreen/tet.dart';
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -82,22 +85,35 @@ class _HomePageState extends State<HomePage> {
                 left: getWidth(15),
                   top: getHeight(50),
                 ),
-                Positioned(child: InkWell(
-                  child: Container(
-                    height: getHeight(35),
-                    width: getWidth(80),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(getHeight(18)),
-                    ),
-                    child: Center(child: Text('Explore',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: getHeight(14),
-                    ),
-                    ),),
+                Positioned(child:
+                OpenContainer(
+                  closedBuilder: (_, openContainer) {
+                    return Container(
+                      height: 40,
+                      width: 100,
+                      child: Center(
+                        child: InkWell(
+                          onTap: openContainer,
+                          child: Text('Explore',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: getHeight(16),
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      )
+                    );
+                  },
+                  openColor: Colors.white,
+                  closedElevation: 50.0,
+                  closedShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
                   ),
+                  closedColor: Colors.white,
+                  openBuilder: (_, closeContainer) {
+                    return SecondScreen();
+                  }
                 ),
                 bottom: getHeight(25),
                   right: getWidth(20),
