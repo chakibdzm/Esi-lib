@@ -50,7 +50,7 @@ class _DevPageState extends State<DevPage> {
     double _w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor:Color(0xFF0A27E0),
 
         body:AnimationLimiter(
           child: ListView.builder(
@@ -75,7 +75,7 @@ class _DevPageState extends State<DevPage> {
                           margin: EdgeInsets.only(bottom: _w / 20),
                           height: _w / 4,
                           decoration: BoxDecoration(
-                            color: Color(0xE65F0303),
+                            color: Colors.white,
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                             boxShadow: [
                               BoxShadow(
@@ -88,7 +88,7 @@ class _DevPageState extends State<DevPage> {
                         ),),
                         Positioned(child: Text(dev[index]['title'].toString(),
                         style: TextStyle(
-                          color: Colors.white54,
+                          color: Colors.black,
                           fontSize: getHeight(20),
                           fontWeight: FontWeight.w600,
                         ),
@@ -102,19 +102,20 @@ class _DevPageState extends State<DevPage> {
                           child: SvgPicture.asset(dev[index]['photo'].toString(),
 
 
-                          ),
-                        ))
-                      ],
-                    )
+                            ),
+                          ))
+                        ],
+                      )
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         )
 
 
-      ),
+
     );
   }
 }
