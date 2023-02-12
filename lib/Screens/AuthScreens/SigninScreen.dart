@@ -1,9 +1,13 @@
+import 'package:esilib/Auth.dart';
+import 'package:esilib/Bottom_nav_bar/Bottom_nav_bar.dart';
 import 'package:esilib/Screens/Home/Home.dart';
 import 'package:esilib/Validators.dart';
 import 'package:esilib/size_config.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
 
@@ -12,6 +16,27 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+  String? errormessage='';
+  bool isLogin=true;
+  final TextEditingController _controllerEmail=TextEditingController();
+  final TextEditingController _controllerPassword=TextEditingController();
+  Future<void> signInWithEmailAndPassword() async{
+    try{
+      await Auth().signInWithEmailAndPassword(
+        email: _controllerEmail.text,
+        password: _controllerPassword.text
+      );
+    }
+    on FirebaseAuthException catch(e){
+      setState(() {
+        errormessage=e.message;
+      });
+
+    }
+  }
+
+
+
   final emailPassFormKey = GlobalKey<FormState>();
   final passFormKey = GlobalKey<FormState>();
   @override
@@ -60,6 +85,7 @@ class _SigninState extends State<Signin> {
               child: Form(
                 key: emailPassFormKey,
                 child: TextFormField(
+                  controller: _controllerEmail,
 
                   style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
@@ -121,7 +147,7 @@ class _SigninState extends State<Signin> {
               child: Form(
                 key: passFormKey,
                 child: TextFormField(
-
+controller: _controllerPassword,
                   style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
                     fontWeight: FontWeight.w500,
@@ -184,7 +210,7 @@ validator: passwordValidator(),
                       if ((emailPassFormKey.currentState!.validate()) && (passFormKey.currentState!.validate())){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
+                          MaterialPageRoute(builder: (context) => BottomNav()),
                         )
                       }
 

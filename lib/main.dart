@@ -1,17 +1,23 @@
+import 'package:esilib/Screens/AuthScreens/SigninScreen.dart';
 import 'package:esilib/Screens/DevScreen/Dev.dart';
 import 'package:esilib/Screens/DevScreen/tet.dart';
 import 'package:esilib/Screens/Home/Home.dart';
 import 'package:esilib/Screens/Onboarding/Onboarding.dart';
 import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'Bottom_nav_bar/Bottom_nav_bar.dart';
 void main(){
+
   runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-      ]);
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
 }
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

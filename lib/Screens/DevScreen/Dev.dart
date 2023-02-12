@@ -50,7 +50,7 @@ class _DevPageState extends State<DevPage> {
     double _w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor:Color(0xFF0A27E0),
+        backgroundColor:Color(0xFFE4E4E7),
 
         body:AnimationLimiter(
           child: ListView.builder(
@@ -88,6 +88,7 @@ class _DevPageState extends State<DevPage> {
                         ),),
                         Positioned(child: Text(dev[index]['title'].toString(),
                         style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
                           color: Colors.black,
                           fontSize: getHeight(20),
                           fontWeight: FontWeight.w600,
@@ -95,6 +96,7 @@ class _DevPageState extends State<DevPage> {
                         ),
                         top: getHeight(25),
                           left: getWidth(120),
+                          right: getWidth(3),
                         ),
                         Positioned(child: Container(
                           height: 80,
