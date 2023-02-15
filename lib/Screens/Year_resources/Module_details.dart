@@ -78,8 +78,8 @@ class _ModuleDetailsState extends State<ModuleDetails> {
                           child: Row(
                             children: [
                               module_name=='Module'
-                              ? Icon(Icons.play_circle_rounded,color: Colors.red,)
-                              :Icon(Icons.book,color:Colors.green,),
+                              ? const  Icon(Icons.play_circle_rounded,color: Colors.red,)
+                              :const Icon(Icons.book,color:Colors.green,),
                               SizedBox(width: getWidth(10),),
                               Text(module_name,
                               style: TextStyle(

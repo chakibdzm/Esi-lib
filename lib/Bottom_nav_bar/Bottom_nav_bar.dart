@@ -1,7 +1,5 @@
-import 'package:esilib/Screens/AuthScreens/SigninScreen.dart';
 import 'package:esilib/Screens/DevScreen/Dev.dart';
 import 'package:esilib/Screens/Home/Home.dart';
-import 'package:esilib/Screens/Onboarding/Onboarding.dart';
 import 'package:esilib/Screens/Profile/My_Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,9 +12,9 @@ class BottomNav extends StatefulWidget {
 class BottomNavState extends State<BottomNav> {
   var currentIndex = 0;
   List<Widget> screens=[
-    HomePage(),
-    DevPage(),
-    MyProfile(),
+    const HomePage(),
+    const DevPage(),
+    const MyProfile(),
   ];
 
   @override
@@ -24,7 +22,7 @@ class BottomNavState extends State<BottomNav> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(5),
+        margin: const EdgeInsets.all(5),
         height: screenWidth * .155,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -32,7 +30,7 @@ class BottomNavState extends State<BottomNav> {
             BoxShadow(
               color: Colors.black.withOpacity(.15),
               blurRadius: 30,
-              offset: Offset(0, 10),
+              offset: const Offset(0, 10),
             ),
           ],
           borderRadius: BorderRadius.circular(50),
@@ -56,7 +54,7 @@ class BottomNavState extends State<BottomNav> {
                   width: screenWidth * .2125,
                   child: Center(
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: const Duration(seconds: 1),
                       curve: Curves.fastLinearToSlowEaseIn,
                       height: index == currentIndex ? screenWidth * .12 : 0,
                       width: index == currentIndex ? screenWidth * .2125 : 0,

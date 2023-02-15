@@ -1,14 +1,5 @@
-import 'package:esilib/Screens/AuthScreens/SigninScreen.dart';
-import 'package:esilib/Screens/DevScreen/Dev.dart';
-import 'package:esilib/Screens/DevScreen/tet.dart';
-import 'package:esilib/Screens/Home/Home.dart';
-import 'package:esilib/Screens/Onboarding/Onboarding.dart';
-import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
-import 'package:esilib/Screens/Year_resources/Resources_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'Bottom_nav_bar/Bottom_nav_bar.dart';
 void main(){
 
@@ -35,7 +26,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home:ResourcesPage(),
+      home:BottomNav(),
     );
   }
 }

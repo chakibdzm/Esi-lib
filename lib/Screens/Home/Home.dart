@@ -1,6 +1,6 @@
 import 'package:animations/animations.dart';
-import 'package:esilib/Screens/DevScreen/Dev.dart';
 import 'package:esilib/Screens/DevScreen/tet.dart';
+import 'package:esilib/Screens/Year_resources/Resources_screen.dart';
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.symmetric(horizontal: getWidth(25)),
               child: Row(
                 children: [
-                  Text('Hello !....',
+                  const Text('Hello !....',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w700
@@ -59,36 +59,35 @@ class _HomePageState extends State<HomePage> {
                     height: getHeight(176),
                     width: getWidth(375),
                     decoration: BoxDecoration(
-                        color: Color(0xFF0A27E0),
+                        color: const Color(0xFF0A27E0),
                         borderRadius: BorderRadius.circular(getHeight(20))
 
                     ),
                   ),
                 ),
-                Positioned(child: Text ('Looking for DEV ?',
+                Positioned(top: getHeight(20),
+                  left: getWidth(15),child: Text ('Looking for DEV ?',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: getHeight(20),
                   fontWeight: FontWeight.w500
                 ),
                 ),
-                top: getHeight(20),
-                  left: getWidth(15),
                 ),
-                Positioned(child: Text('clearly everyone wants to dev his \nexperience and have a nice portfolio',
+                Positioned(left: getWidth(15),
+                  top: getHeight(50),child: Text('clearly everyone wants to dev his \nexperience and have a nice portfolio',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: getHeight(16),
                 ),
 
                 ),
-                left: getWidth(15),
-                  top: getHeight(50),
                 ),
-                Positioned(child:
+                Positioned(bottom: getHeight(25),
+                  right: getWidth(20),child:
                 OpenContainer(
                   closedBuilder: (_, openContainer) {
-                    return Container(
+                    return SizedBox(
                       height: 40,
                       width: 100,
                       child: Center(
@@ -115,8 +114,6 @@ class _HomePageState extends State<HomePage> {
                     return SecondScreen();
                   }
                 ),
-                bottom: getHeight(25),
-                  right: getWidth(20),
                 )
               ],
             )
@@ -149,22 +146,30 @@ class _HomePageState extends State<HomePage> {
     itemCount: 6,
     shrinkWrap: true,
     itemBuilder: (BuildContext context, int index) =>
-        Container(
-          height: getHeight(95),
-          width: getWidth(375),
-          decoration: BoxDecoration(
-            color: Color(0xFF0A27E0),
-            borderRadius: BorderRadius.circular(getHeight(18)),
-          ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ResourcesPage()),
+            );
+          },
+          child: Container(
+            height: getHeight(95),
+            width: getWidth(375),
+            decoration: BoxDecoration(
+              color: const Color(0xFF0A27E0),
+              borderRadius: BorderRadius.circular(getHeight(18)),
+            ),
 
-          child: Center(child: Text(module[index].toString(),
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-            fontSize: getHeight(19),
-          ),
+            child: Center(child: Text(module[index].toString(),
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: getHeight(19),
+            ),
 
-          ),),
+            ),),
+          ),
         )
 
     ),

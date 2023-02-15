@@ -24,30 +24,30 @@ class _MyProfileState extends State<MyProfile> {
               bottomRight: Radius.circular(getHeight(20))),
             ),
             child: FittedBox(
-              child: SvgPicture.asset('assets/illustrations/pfp.svg'),
               fit: BoxFit.fill,
+              child: SvgPicture.asset('assets/illustrations/pfp.svg'),
 
             ),
 
           )),
-          Positioned(child: Container(
+          Positioned(top: getHeight(120),
+            left: getWidth(45),child: Container(
             height: getHeight(210),
             width: getWidth(160),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(getHeight(20))
             ),
             child: FittedBox(
+              fit: BoxFit.fill,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: SvgPicture.asset('assets/illustrations/pfp.svg')),
-              fit: BoxFit.fill,
 
             ),
           ),
-          top: getHeight(120),
-            left: getWidth(45),
           ),
-          Positioned(child: Container(
+          Positioned(top: getHeight(350),
+            left: getWidth(12),child: Container(
             height: getHeight(370),
             width: getWidth(350),
             decoration: BoxDecoration(
@@ -83,7 +83,7 @@ class _MyProfileState extends State<MyProfile> {
                          fontWeight: FontWeight.w700
                      ),
                    ),
-                   Spacer(),
+                   const Spacer(),
                    Padding(
                      padding: EdgeInsets.only(left: getWidth(190)),
                      child: InkWell(
@@ -102,8 +102,6 @@ class _MyProfileState extends State<MyProfile> {
                ),
              ),
           ),
-          top: getHeight(350),
-            left: getWidth(12),
           
           )
         ],

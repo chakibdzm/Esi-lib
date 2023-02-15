@@ -50,24 +50,24 @@ class _DevPageState extends State<DevPage> {
     double _w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor:Color(0xFFE4E4E7),
+        backgroundColor:const Color(0xFFE4E4E7),
 
         body:AnimationLimiter(
           child: ListView.builder(
             padding: EdgeInsets.all(_w / 30),
             physics:
-            BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             itemCount: dev.length,
             itemBuilder: (BuildContext context, int index) {
               return AnimationConfiguration.staggeredList(
                 position: index,
-                delay: Duration(milliseconds: 100),
+                delay: const Duration(milliseconds: 100),
                 child: SlideAnimation(
-                  duration: Duration(milliseconds: 2500),
+                  duration: const Duration(milliseconds: 2500),
                   curve: Curves.fastLinearToSlowEaseIn,
                   verticalOffset: -250,
                   child: ScaleAnimation(
-                    duration: Duration(milliseconds: 1500),
+                    duration: const Duration(milliseconds: 1500),
                     curve: Curves.fastLinearToSlowEaseIn,
                     child: Stack(
                       children: [
@@ -76,7 +76,7 @@ class _DevPageState extends State<DevPage> {
                           height: _w / 4,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderRadius: const BorderRadius.all(Radius.circular(20)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.1),
@@ -86,7 +86,9 @@ class _DevPageState extends State<DevPage> {
                             ],
                           ),
                         ),),
-                        Positioned(child: Text(dev[index]['title'].toString(),
+                        Positioned(top: getHeight(25),
+                          left: getWidth(120),
+                          right: getWidth(3),child: Text(dev[index]['title'].toString(),
                         style: TextStyle(
                           overflow: TextOverflow.ellipsis,
                           color: Colors.black,
@@ -94,11 +96,8 @@ class _DevPageState extends State<DevPage> {
                           fontWeight: FontWeight.w600,
                         ),
                         ),
-                        top: getHeight(25),
-                          left: getWidth(120),
-                          right: getWidth(3),
                         ),
-                        Positioned(child: Container(
+                        Positioned(child: SizedBox(
                           height: 80,
                           width: 100,
                           child: SvgPicture.asset(dev[index]['photo'].toString(),
