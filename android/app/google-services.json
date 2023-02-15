@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "48568370507",
+    "project_id": "esi-lib",
+    "storage_bucket": "esi-lib.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48568370507:android:11ce37970207f0565b54ce",
+        "android_client_info": {
+          "package_name": "com.example.esilib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48568370507-h2eqdn55ukrd3snuvb5k0d3biqmkmjkf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4kuN3Fnk2PB508PdTtbnh1cZjGrPj85Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48568370507-h2eqdn55ukrd3snuvb5k0d3biqmkmjkf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

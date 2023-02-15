@@ -1,9 +1,11 @@
-import 'package:esilib/Screens/Home/Home.dart';
+import 'package:esilib/Auth.dart';
+import 'package:esilib/Bottom_nav_bar/Bottom_nav_bar.dart';
 import 'package:esilib/Validators.dart';
 import 'package:esilib/size_config.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:form_field_validator/form_field_validator.dart';
+
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
 
@@ -12,13 +14,34 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+  String? errormessage='';
+  bool isLogin=true;
+  final TextEditingController _controllerEmail=TextEditingController();
+  final TextEditingController _controllerPassword=TextEditingController();
+  Future<void> signInWithEmailAndPassword() async{
+    try{
+      await Auth().signInWithEmailAndPassword(
+        email: _controllerEmail.text,
+        password: _controllerPassword.text
+      );
+    }
+    on FirebaseAuthException catch(e){
+      setState(() {
+        errormessage=e.message;
+      });
+
+    }
+  }
+
+
+
   final emailPassFormKey = GlobalKey<FormState>();
   final passFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Color(0xFF0A27E0),
+      backgroundColor: const Color(0xFF0A27E0),
       body: 
       SingleChildScrollView(
         child: Column(
@@ -36,15 +59,14 @@ class _SigninState extends State<Signin> {
                   
                 ),
                 Positioned(child: SvgPicture.asset('assets/illustrations/Friends singing Christmas Carol-rafiki.svg')),
-                Positioned(child: Text('Sign in',
+                Positioned(left: getWidth(150),
+                  bottom: getHeight(60),child: Text('Sign in',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: getHeight(26),
                   fontWeight: FontWeight.w700,
                 ),
                 ),
-                left: getWidth(150),
-                  bottom: getHeight(60),
                 ),
 
                 
@@ -60,6 +82,7 @@ class _SigninState extends State<Signin> {
               child: Form(
                 key: emailPassFormKey,
                 child: TextFormField(
+                  controller: _controllerEmail,
 
                   style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
@@ -68,14 +91,14 @@ class _SigninState extends State<Signin> {
                     color: Colors.white,
                   ),
 
-                  cursorColor: Color(0xFF9DA3B6),
+                  cursorColor: const Color(0xFF9DA3B6),
 
                  validator: schoolMailValidator(),
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         width: 1,
                         color: Color(0xFF2F2F2),
                       ),
@@ -90,7 +113,7 @@ class _SigninState extends State<Signin> {
                           width: 0,
                           style: BorderStyle.none,
                         )),
-                    fillColor:Color(0xFF2F2F2),
+                    fillColor:const Color(0xFF2F2F2),
                     filled: true,
                     hintText: 'Email',
 
@@ -108,7 +131,7 @@ class _SigninState extends State<Signin> {
                         borderRadius: BorderRadius.circular(getHeight(20)),
                         color: Colors.white,
                       ),
-                      child: Center(child: Icon(Icons.email,color:Color(0xFF0A27E0) ,)),
+                      child: const Center(child: Icon(Icons.email,color:Color(0xFF0A27E0) ,)),
                     ),
 
                   ),
@@ -121,7 +144,7 @@ class _SigninState extends State<Signin> {
               child: Form(
                 key: passFormKey,
                 child: TextFormField(
-
+controller: _controllerPassword,
                   style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
                     fontWeight: FontWeight.w500,
@@ -129,14 +152,14 @@ class _SigninState extends State<Signin> {
                     color: Colors.white,
                   ),
 
-                  cursorColor: Color(0xFF9DA3B6),
+                  cursorColor: const Color(0xFF9DA3B6),
 validator: passwordValidator(),
                 obscureText: true,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         width: 1,
                         color: Color(0xFF2F2F2),
                       ),
@@ -151,7 +174,7 @@ validator: passwordValidator(),
                           width: 0,
                           style: BorderStyle.none,
                         )),
-                    fillColor:Color(0xFF2F2F2),
+                    fillColor:const Color(0xFF2F2F2),
                     filled: true,
                     hintText: 'Password',
 
@@ -169,7 +192,7 @@ validator: passwordValidator(),
                         borderRadius: BorderRadius.circular(getHeight(20)),
                         color: Colors.white,
                       ),
-                      child: Center(child: Icon(Icons.key,color:Color(0xFF0A27E0) ,)),
+                      child: const Center(child: Icon(Icons.key,color:Color(0xFF0A27E0) ,)),
                     ),
 
                   ),
@@ -184,7 +207,7 @@ validator: passwordValidator(),
                       if ((emailPassFormKey.currentState!.validate()) && (passFormKey.currentState!.validate())){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
+                          MaterialPageRoute(builder: (context) => BottomNav()),
                         )
                       }
 
@@ -203,7 +226,7 @@ validator: passwordValidator(),
                 child: Center(
                   child: Text('Sign in',
                   style: TextStyle(
-                    color: Color(0xFF0A27E0),
+                    color: const Color(0xFF0A27E0),
                     fontWeight: FontWeight.w600,
                     fontSize: getHeight(20)
                   ),
