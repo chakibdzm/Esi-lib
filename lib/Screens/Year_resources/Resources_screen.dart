@@ -41,8 +41,17 @@ class _ResourcesPageState extends State<ResourcesPage> {
                 height: getHeight(180),
                 width: getWidth(375),
                 decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: const Color(0xFF0A27E0),
                     borderRadius: BorderRadius.circular(getHeight(20))),
+                child: Padding(padding: EdgeInsets.symmetric(horizontal: getWidth(10),vertical: getHeight(10)),
+                child: Text('here you study n modules ,totale of X coef and your going to study ...,you have projects in this modules ....,',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: getHeight(18),
+                ),
+                ),
+                ),
               ),
             ),
             SizedBox(
@@ -65,12 +74,12 @@ class _ResourcesPageState extends State<ResourcesPage> {
                 height: getHeight(460),
                 width: getWidth(375),
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: const Color(0xFF0A27E0),
                   borderRadius: BorderRadius.circular(getHeight(20)),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: getWidth(10),
-                  vertical: getHeight(10)),
+                  padding: EdgeInsets.only(left: getWidth(10),right: getHeight(10),
+                  top: getHeight(10)),
                   child: ListView.separated(
                       separatorBuilder: (BuildContext context, int index) {
                         return SizedBox(

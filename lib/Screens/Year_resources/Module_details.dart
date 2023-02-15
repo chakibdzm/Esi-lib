@@ -28,13 +28,13 @@ class _ModuleDetailsState extends State<ModuleDetails> {
                   maxHeight: double.infinity,
                 ),
                 width: getWidth(375),
-                decoration: BoxDecoration(color: Colors.black,
+                decoration: BoxDecoration(color: const Color(0xFF0A27E0),
                 borderRadius: BorderRadius.circular(getHeight(20)),
                 ),
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: getWidth(13),
                   vertical: getHeight(15)),
-                  child: Text('ksjdksdksdk,sdk,skd,skd,skd,skd,skd,sjfidgjdngdgddddddddddddddddddddddddddddddddffffdsfskdjgoizeoigjzioejfoizejiofzjeiogjeziogjzeiogjiozegjiozejgiozejgoeikdjviozejgiozejgiozejgiozejgizeklncklzsnfknzknckzcklnsklcnksnckqscklqslkcnqskcnklxnckqsnckqsnckqsncklqsnclknqslc;,qskcnqskfnqsknqlksnflkqsnflkqskdnkzdngkzngdddddddddddd',
+                  child: Text('this module you have to study like this and try to focus on this and in this programe you are going to need ',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getHeight(18),

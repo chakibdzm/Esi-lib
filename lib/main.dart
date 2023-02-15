@@ -1,4 +1,4 @@
-import 'package:esilib/Screens/DevScreen/article_components.dart';
+import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 void main(){
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home:const ArticlePage(),
+      home: MyWidget(),
     );
   }
 }
