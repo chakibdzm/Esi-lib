@@ -1,6 +1,6 @@
+import 'package:esilib/Screens/DevScreen/article_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'Bottom_nav_bar/Bottom_nav_bar.dart';
 void main(){
 
   runApp(const MyApp());
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home:BottomNav(),
+      home:const ArticlePage(),
     );
   }
 }
