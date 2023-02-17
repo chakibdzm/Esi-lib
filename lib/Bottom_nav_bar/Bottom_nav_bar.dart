@@ -1,4 +1,5 @@
 import 'package:esilib/Screens/DevScreen/Dev.dart';
+import 'package:esilib/Screens/Feedback/Feeds_back.dart';
 import 'package:esilib/Screens/Home/Home.dart';
 import 'package:esilib/Screens/Profile/My_Profile.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class BottomNavState extends State<BottomNav> {
     const HomePage(),
     const DevPage(),
     const MyProfile(),
+    const FeedPage(),
   ];
 
   @override
@@ -92,6 +94,7 @@ class BottomNavState extends State<BottomNav> {
     Icons.home_rounded,
     Icons.code,
     Icons.person_rounded,
+    Icons.info,
   ];
 }
 

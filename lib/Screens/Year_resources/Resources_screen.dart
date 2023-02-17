@@ -41,8 +41,17 @@ class _ResourcesPageState extends State<ResourcesPage> {
                 height: getHeight(180),
                 width: getWidth(375),
                 decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: const Color(0xFF0A27E0),
                     borderRadius: BorderRadius.circular(getHeight(20))),
+                child: Padding(padding: EdgeInsets.symmetric(horizontal: getWidth(10),vertical: getHeight(10)),
+                child: Text('here you study n modules ,totale of X coef and your going to study ...,you have projects in this modules ....,',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: getHeight(18),
+                ),
+                ),
+                ),
               ),
             ),
             SizedBox(
@@ -65,54 +74,60 @@ class _ResourcesPageState extends State<ResourcesPage> {
                 height: getHeight(460),
                 width: getWidth(375),
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: const Color(0xFF0A27E0),
                   borderRadius: BorderRadius.circular(getHeight(20)),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: getWidth(10),
-                  vertical: getHeight(10)),
-                  child: ListView.separated(
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(
-                          height: getHeight(15),
-                        );
-                      },
-                      scrollDirection: Axis.vertical,
-                      itemCount: 8,
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext context, int index) =>
-                          SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const ModuleDetails()),
-                                    );
-                                  },
-                                  child: Container(
-                                    height: getHeight(70),
-                                    width: getWidth(375),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(getHeight(20)),
+                  padding: EdgeInsets.only(left: getWidth(10),right: getHeight(10),
+                  top: getHeight(10)),
+                  child: NotificationListener<OverscrollIndicatorNotification>(
+                    onNotification: (OverscrollIndicatorNotification overscroll) {
+                      overscroll.disallowGlow();
+                      return true;
+                    },
+                    child: ListView.separated(
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(
+                            height: getHeight(15),
+                          );
+                        },
+                        scrollDirection: Axis.vertical,
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) =>
+                            SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const ModuleDetails()),
+                                      );
+                                    },
+                                    child: Container(
+                                      height: getHeight(70),
+                                      width: getWidth(375),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(getHeight(20)),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.only(left: getWidth(12),
+                                            top: getHeight(20)),
+                                        child: Text('Module_name',
+                                          style: TextStyle(
+                                              fontSize: getHeight(18),
+                                              fontWeight: FontWeight.w600
+                                          ),),
+                                      ),
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsets.only(left: getWidth(12),
-                                          top: getHeight(20)),
-                                      child: Text('Module_name',
-                                        style: TextStyle(
-                                            fontSize: getHeight(18),
-                                            fontWeight: FontWeight.w600
-                                        ),),
-                                    ),
-                                  ),
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
+                    ),
                   ),
                 ),
               ),
