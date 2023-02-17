@@ -64,33 +64,39 @@ class _ModuleDetailsState extends State<ModuleDetails> {
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: getWidth(13),
                       vertical: getHeight(15)),
-                  child: ListView.separated(
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(
-                          height: getHeight(15),
-                        );
+                  child: NotificationListener<OverscrollIndicatorNotification>(
+                      onNotification: (OverscrollIndicatorNotification overscroll) {
+                        overscroll.disallowGlow();
+                        return true;
                       },
-                      scrollDirection: Axis.vertical,
-                      itemCount: 8,
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext context, int index) =>
-                        InkWell(
-                          child: Row(
-                            children: [
-                              module_name=='Module'
-                              ? const  Icon(Icons.play_circle_rounded,color: Colors.red,)
-                              :const Icon(Icons.book,color:Colors.green,),
-                              SizedBox(width: getWidth(10),),
-                              Text(module_name,
-                              style: TextStyle(
-                                fontSize: getHeight(15),
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600
-                              ),
-                              )
-                            ],
-                          ),
-                        )
+                    child: ListView.separated(
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(
+                            height: getHeight(15),
+                          );
+                        },
+                        scrollDirection: Axis.vertical,
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) =>
+                          InkWell(
+                            child: Row(
+                              children: [
+                                module_name=='Module'
+                                ? const  Icon(Icons.play_circle_rounded,color: Colors.red,)
+                                :const Icon(Icons.book,color:Colors.green,),
+                                SizedBox(width: getWidth(10),),
+                                Text(module_name,
+                                style: TextStyle(
+                                  fontSize: getHeight(15),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600
+                                ),
+                                )
+                              ],
+                            ),
+                          )
+                    ),
                   ),
                 ),
               ),

@@ -49,7 +49,17 @@ List articles = [
         'id':2,
         'insta': 'flutter_app_developers',
         'icon': 'assets/illustrations/icons8-instagram.svg',
-      }
+      },
+      {
+        'id':2,
+        'insta': 'codenmood',
+        'icon': 'assets/illustrations/icons8-instagram.svg',
+      },
+      {
+        'id':2,
+        'insta': 'flutter_coding',
+        'icon': 'assets/illustrations/icons8-instagram.svg',
+      },
     ]
   },
 

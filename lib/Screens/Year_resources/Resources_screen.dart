@@ -80,48 +80,54 @@ class _ResourcesPageState extends State<ResourcesPage> {
                 child: Padding(
                   padding: EdgeInsets.only(left: getWidth(10),right: getHeight(10),
                   top: getHeight(10)),
-                  child: ListView.separated(
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(
-                          height: getHeight(15),
-                        );
-                      },
-                      scrollDirection: Axis.vertical,
-                      itemCount: 8,
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext context, int index) =>
-                          SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const ModuleDetails()),
-                                    );
-                                  },
-                                  child: Container(
-                                    height: getHeight(70),
-                                    width: getWidth(375),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(getHeight(20)),
+                  child: NotificationListener<OverscrollIndicatorNotification>(
+                    onNotification: (OverscrollIndicatorNotification overscroll) {
+                      overscroll.disallowGlow();
+                      return true;
+                    },
+                    child: ListView.separated(
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(
+                            height: getHeight(15),
+                          );
+                        },
+                        scrollDirection: Axis.vertical,
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) =>
+                            SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const ModuleDetails()),
+                                      );
+                                    },
+                                    child: Container(
+                                      height: getHeight(70),
+                                      width: getWidth(375),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(getHeight(20)),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.only(left: getWidth(12),
+                                            top: getHeight(20)),
+                                        child: Text('Module_name',
+                                          style: TextStyle(
+                                              fontSize: getHeight(18),
+                                              fontWeight: FontWeight.w600
+                                          ),),
+                                      ),
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsets.only(left: getWidth(12),
-                                          top: getHeight(20)),
-                                      child: Text('Module_name',
-                                        style: TextStyle(
-                                            fontSize: getHeight(18),
-                                            fontWeight: FontWeight.w600
-                                        ),),
-                                    ),
-                                  ),
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
+                    ),
                   ),
                 ),
               ),

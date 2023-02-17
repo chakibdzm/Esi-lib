@@ -135,43 +135,49 @@ class _HomePageState extends State<HomePage> {
         Expanded(
         child: Padding(padding: EdgeInsets.only(left: getWidth(25),right: getWidth(25)),
     child:  Flexible(
-    child: ListView.separated(
+    child: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowGlow();
+          return true;
+        },
+      child: ListView.separated(
 
-    separatorBuilder: (BuildContext context, int index) {
-    return SizedBox(
-    height: getHeight(15),
-    );
-    },
-    scrollDirection: Axis.vertical,
-    itemCount: 6,
-    shrinkWrap: true,
-    itemBuilder: (BuildContext context, int index) =>
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ResourcesPage()),
-            );
-          },
-          child: Container(
-            height: getHeight(95),
-            width: getWidth(375),
-            decoration: BoxDecoration(
-              gradient: RoseBgradient,
-              borderRadius: BorderRadius.circular(getHeight(18)),
+      separatorBuilder: (BuildContext context, int index) {
+      return SizedBox(
+      height: getHeight(15),
+      );
+      },
+      scrollDirection: Axis.vertical,
+      itemCount: 6,
+      shrinkWrap: true,
+      itemBuilder: (BuildContext context, int index) =>
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ResourcesPage()),
+              );
+            },
+            child: Container(
+              height: getHeight(95),
+              width: getWidth(375),
+              decoration: BoxDecoration(
+                gradient: RoseBgradient,
+                borderRadius: BorderRadius.circular(getHeight(18)),
+              ),
+
+              child: Center(child: Text(module[index].toString(),
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: getHeight(19),
+              ),
+
+              ),),
             ),
+          )
 
-            child: Center(child: Text(module[index].toString(),
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: getHeight(19),
-            ),
-
-            ),),
-          ),
-        )
-
+      ),
     ),
     ),
         ),
