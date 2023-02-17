@@ -1,3 +1,4 @@
+import 'package:esilib/Colors.dart';
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 class FeedPage extends StatefulWidget {
@@ -35,13 +36,18 @@ class _FeedPageState extends State<FeedPage> {
                 SizedBox(height: getHeight(15),),
                 Container(height: getHeight(230),
                 decoration: BoxDecoration(
-                  color: const Color(0xEDA8A0D5),
+                  gradient: bluePgradient,
                   borderRadius: BorderRadius.circular(getHeight(20))
 
                 ),
                   child: Padding(
                     padding:  EdgeInsets.symmetric(horizontal: getWidth(10)),
                     child: TextFormField(
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: getHeight(18),
+                      ),
                       controller: _controllerSupport ,
                       maxLength: 500,
                       autofocus: false,
@@ -55,7 +61,13 @@ class _FeedPageState extends State<FeedPage> {
                       },
                       decoration: const InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'Write...'),
+                          hintText: 'Write...',
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+
+                        )
+
+                      ),
                     ),
                   ),
                 ),
@@ -67,7 +79,7 @@ class _FeedPageState extends State<FeedPage> {
                       height: getHeight(100),
                       width: getWidth(200),
                       decoration: BoxDecoration(
-                          color: const Color(0xEDA8A0D5),
+                          gradient: bluePgradient,
                           borderRadius: BorderRadius.circular(getHeight(20))
 
                       ),

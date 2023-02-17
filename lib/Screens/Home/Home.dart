@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:esilib/Colors.dart';
 import 'package:esilib/Screens/DevScreen/tet.dart';
 import 'package:esilib/Screens/Year_resources/Resources_screen.dart';
 import 'package:esilib/size_config.dart';
@@ -12,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   List<String>module=[
     '1 CP',
     '2 CP',
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                     height: getHeight(176),
                     width: getWidth(375),
                     decoration: BoxDecoration(
-                        color: const Color(0xFF0A27E0),
+                        gradient: RoseBgradient,
                         borderRadius: BorderRadius.circular(getHeight(20))
 
                     ),
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
             height: getHeight(95),
             width: getWidth(375),
             decoration: BoxDecoration(
-              color: const Color(0xFF0A27E0),
+              gradient: RoseBgradient,
               borderRadius: BorderRadius.circular(getHeight(18)),
             ),
 
