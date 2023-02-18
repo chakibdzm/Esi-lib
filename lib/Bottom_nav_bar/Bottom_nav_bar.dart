@@ -19,8 +19,17 @@ class BottomNavState extends State<BottomNav> {
     const FeedPage(),
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
+
+
+
+
+
+
+
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: Container(
@@ -62,7 +71,7 @@ class BottomNavState extends State<BottomNav> {
                       width: index == currentIndex ? screenWidth * .2125 : 0,
                       decoration: BoxDecoration(
                         color: index == currentIndex
-                            ? Colors.blueAccent.withOpacity(.2)
+                            ? Color(0xFFEC6FFD).withOpacity(.2)
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(50),
                       ),
@@ -76,7 +85,7 @@ class BottomNavState extends State<BottomNav> {
                     listOfIcons[index],
                     size: screenWidth * .076,
                     color: index == currentIndex
-                        ? Colors.blueAccent
+                        ? Color(0xFF0518C2).withOpacity(0.9)
                         : Colors.black26,
                   ),
                 ),
