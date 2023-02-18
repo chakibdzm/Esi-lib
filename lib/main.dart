@@ -1,18 +1,19 @@
-import 'package:esilib/Bottom_nav_bar/Bottom_nav_bar.dart';
+import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
 import 'package:esilib/Screens/controllers/articlesController.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-void main(){
+void main()async{
 
-  runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home: BottomNav(),
+      home: MyWidget(),
     );
   }
 }

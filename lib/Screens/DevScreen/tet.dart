@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:esilib/Screens/DevScreen/Dev.dart';
 import 'package:flutter/material.dart';
 class SecondScreen extends StatefulWidget {
+  const SecondScreen({super.key});
+
   @override
   _SecondScreenState createState() => _SecondScreenState();
 }
