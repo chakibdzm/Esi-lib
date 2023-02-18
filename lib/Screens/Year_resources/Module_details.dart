@@ -1,5 +1,7 @@
+import 'package:esilib/Screens/Year_resources/List_Modules.dart';
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ModuleDetails extends StatefulWidget {
   const ModuleDetails({Key? key}) : super(key: key);
@@ -23,6 +25,17 @@ class _ModuleDetailsState extends State<ModuleDetails> {
               SizedBox(
                 height: getHeight(20),
               ),
+              Text(modules[0]['modules'][0]['name'],
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: getHeight(21)
+                ),
+              ),
+              SizedBox(height: getHeight(18),),
+
+
+
               Container(
                 constraints: const BoxConstraints(
                   maxHeight: double.infinity,
@@ -34,7 +47,7 @@ class _ModuleDetailsState extends State<ModuleDetails> {
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: getWidth(13),
                   vertical: getHeight(15)),
-                  child: Text('this module you have to study like this and try to focus on this and in this programe you are going to need ',
+                  child: Text(modules[0]['modules'][0]['article'],
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getHeight(18),
@@ -76,17 +89,17 @@ class _ModuleDetailsState extends State<ModuleDetails> {
                           );
                         },
                         scrollDirection: Axis.vertical,
-                        itemCount: 8,
+                        itemCount: resources.length,
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) =>
                           InkWell(
                             child: Row(
                               children: [
-                                module_name=='Module'
-                                ? const  Icon(Icons.play_circle_rounded,color: Colors.red,)
-                                :const Icon(Icons.book,color:Colors.green,),
+                                SvgPicture.asset('assets/illustrations/icons8-youtube.svg',
+                                height: getHeight(32),
+                                ),
                                 SizedBox(width: getWidth(10),),
-                                Text(module_name,
+                                Text(resources[index],
                                 style: TextStyle(
                                   fontSize: getHeight(15),
                                   color: Colors.white,

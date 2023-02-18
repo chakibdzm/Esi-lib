@@ -10,10 +10,6 @@ var RoseBgradient=const LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
 );
-var Scafgradient=const LinearGradient(
-  colors: [Color(0xffe9bff1), Color(0xff0c82df)],
-  begin: Alignment.bottomCenter,
-  end: Alignment.topCenter,
-);
+
 
 

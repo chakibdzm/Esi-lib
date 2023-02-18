@@ -3,7 +3,8 @@ List articles = [
     'name': 'Flutter Zero to Hero',
     'image': 'assets/illustrations/Google-flutter-logo.svg',
     'article':
-        'What is the main purpose of Flutter ? Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase.',
+        'What is the main purpose of Flutter ? Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase.'
+            'First of all you Need to learn basics like \n \n ♦  Whats Statefull/less widget and difference \n \n ♦  AppBar,Container,Column,Row,Paddding.. \n \n ♦  Statemanagement like Provider,GetX.. \n \n ♦  Validation and FormFields,Keys.. ',
     'resources': [
       {
         'id':1,

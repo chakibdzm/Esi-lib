@@ -59,7 +59,7 @@ class _SecondScreenState extends State<SecondScreen> {
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 30,
-                color:  Color(0xE6C6C2C2),
+                color:  Colors.white,
               ),
             ),
           ),
