@@ -1,10 +1,21 @@
 import 'package:esilib/Screens/DevScreen/ListOf_resources.dart';
+import 'package:esilib/Screens/controllers/articlesController.dart';
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
-class ArticlePage extends StatelessWidget {
+class ArticlePage extends StatefulWidget {
   const ArticlePage({Key? key}) : super(key: key);
+
+  @override
+  State<ArticlePage> createState() => _ArticlePageState();
+}
+
+class _ArticlePageState extends State<ArticlePage> {
+  ArtController _secondaryIndex= Get.find();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +39,7 @@ class ArticlePage extends StatelessWidget {
                     height: getHeight(20),
                   ),
                   Text(
-                    articles[0]['name'].toString(),
+                    articles[_secondaryIndex.ind!]['name'].toString(),
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
@@ -41,20 +52,16 @@ class ArticlePage extends StatelessWidget {
                   ),
                   Center(
                     child: SizedBox(
-                      height: getHeight(100),
-                      width: getWidth(400),
-                      child: FittedBox(
-                        fit: BoxFit.fill,
-                        child: SvgPicture.asset(
-                            articles[0]['image'],
-                          width: getHeight(300),
-                          color: Colors.white,
-                        ),
+                      height: getHeight(150),
+                      width: getWidth(200),
+                      child: SvgPicture.asset(
+                          articles[_secondaryIndex.ind!]['image'],
+                        width: getHeight(300),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: getHeight(15),
+                    height: getHeight(20),
                   ),
                   Container(
                     constraints: const BoxConstraints(
@@ -74,7 +81,7 @@ class ArticlePage extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: getWidth(10), vertical: getHeight(12)),
-                      child: Text(articles[0]['article'].toString(),
+                      child: Text(articles[_secondaryIndex.ind!]['article'].toString(),
                         style: TextStyle(
                           fontSize: getHeight(16),
                           fontWeight: FontWeight.w500,
@@ -113,17 +120,17 @@ class ArticlePage extends StatelessWidget {
                               height: getHeight(15),
                             );
                           },
-                          itemCount: 11,
+                          itemCount: articles[_secondaryIndex.ind!]['resources'].length,
                           shrinkWrap: true,
                           itemBuilder: (BuildContext context, int index) =>
                               InkWell(
                                 child: Row(
                                   children: [
-                                    SvgPicture.asset(articles[0]['resources'][index]['icon'],
+                                    SvgPicture.asset(articles[_secondaryIndex.ind!]['resources'][index]['icon'],
                                     height: getHeight(30),
                                     ),
                                     SizedBox(width: getWidth(10),),
-                                    SelectableText( articles[0]['resources'][index]['id']==1  ?articles[0]['resources'][index]['youtube'].toString() :articles[0]['resources'][index]['insta'].toString(),
+                                    SelectableText( articles[_secondaryIndex.ind!]['resources'][index]['id']==1  ?articles[_secondaryIndex.ind!]['resources'][index]['youtube'].toString() :articles[_secondaryIndex.ind!]['resources'][index]['insta'].toString(),
                                       style: TextStyle(
                                           fontSize: getHeight(16),
                                           color: Colors.black,

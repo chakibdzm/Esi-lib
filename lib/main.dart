@@ -1,8 +1,9 @@
 import 'package:esilib/Bottom_nav_bar/Bottom_nav_bar.dart';
+import 'package:esilib/Screens/controllers/articlesController.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:get/get.dart';
 void main(){
 
   runApp(const MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ArtController());
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,

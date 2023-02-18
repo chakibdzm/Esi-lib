@@ -1,9 +1,12 @@
-import 'package:esilib/Colors.dart';
+
+import 'package:esilib/Screens/DevScreen/ListOf_resources.dart';
 import 'package:esilib/Screens/DevScreen/article_components.dart';
+import 'package:esilib/Screens/controllers/articlesController.dart';
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 class DevPage extends StatefulWidget {
   const DevPage({Key? key}) : super(key: key);
 
@@ -12,40 +15,7 @@ class DevPage extends StatefulWidget {
 }
 
 class _DevPageState extends State<DevPage> {
-  List<Map<String,String>>dev=[
-    {
-      'title':'Flutter Zero to Hero',
-      'photo':'assets/illustrations/Google-flutter-logo.svg'
-    },
-    {
-      'title':'why laravel in 2022',
-      'photo':'assets/illustrations/laravel-2.svg',
-    },
-    {
-      'title':'Firebase for first projects ?',
-      'photo':'assets/illustrations/firebase-ar21.svg',
-    },
-    {
-      'title': 'Native or cross ?',
-'photo':'assets/illustrations/java-icon.svg',
-    },
-    {
-      'title':'what does python do for me ?',
-      'photo':'assets/illustrations/Python-logo-notext.svg',
-    },
-    {
-      'title':'Flutter or React Native ?',
-      'photo':'assets/illustrations/react-native-1.svg',
-
-    },
-    {
-      'title':'looking for fullstack Back-end ?',
-      'phot':'assets/illustrations/Django_logo.svg',
-    }
-
-  ];
-
-
+  ArtController _secondaryIndex= Get.find();
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -53,18 +23,23 @@ class _DevPageState extends State<DevPage> {
     return SafeArea(
       child: Scaffold(
         body:Container(
-          decoration: BoxDecoration(
-            gradient: Scafgradient,
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [ Color(0xff00bcd4), Color(0xff22133c)],
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+              )
           ),
           child: AnimationLimiter(
             child: ListView.builder(
               padding: EdgeInsets.all(_w / 30),
               physics:
               const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-              itemCount: dev.length,
+              itemCount: articles.length,
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                   onTap: () {
+                    _secondaryIndex.ind=index;
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const ArticlePage()),
@@ -99,7 +74,7 @@ class _DevPageState extends State<DevPage> {
                             ),),
                             Positioned(top: getHeight(25),
                               left: getWidth(120),
-                              right: getWidth(3),child: Text(dev[index]['title'].toString(),
+                              right: getWidth(3),child: Text(articles[index]['name'].toString(),
                             style: TextStyle(
                               overflow: TextOverflow.ellipsis,
                               color: Colors.black,
@@ -108,10 +83,13 @@ class _DevPageState extends State<DevPage> {
                             ),
                             ),
                             ),
-                            Positioned(child: SizedBox(
-                              height: 80,
-                              width: 100,
-                              child: SvgPicture.asset(dev[index]['photo'].toString(),
+                            Positioned(
+                                top: getHeight(10),
+                                left: getWidth(10),
+                                child: SizedBox(
+                              height: getHeight(80),
+                              width: getWidth(80),
+                              child: SvgPicture.asset(articles[index]['image'].toString(),
 
 
                                 ),

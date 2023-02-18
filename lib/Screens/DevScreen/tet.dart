@@ -1,6 +1,5 @@
 
 import 'dart:async';
-import 'package:animations/animations.dart';
 import 'package:esilib/Screens/DevScreen/Dev.dart';
 import 'package:flutter/material.dart';
 class SecondScreen extends StatefulWidget {
@@ -14,14 +13,14 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(milliseconds: 700), () {
+    Timer(const Duration(milliseconds: 700), () {
       setState(() {
         _a = !_a;
       });
     });
-    Timer(Duration(milliseconds: 2000), () {
+    Timer(const Duration(milliseconds: 2000), () {
       Navigator.of(context)
-          .pushReplacement(SlideTransitionAnimation(DevPage()));
+          .pushReplacement(SlideTransitionAnimation(const DevPage()));
     });
   }
 
@@ -41,13 +40,20 @@ class _SecondScreenState extends State<SecondScreen> {
       body: Stack(
         children: [
           AnimatedContainer(
-            duration: Duration(milliseconds: 2000),
+            duration: const Duration(milliseconds: 2000),
             curve: Curves.fastLinearToSlowEaseIn,
             width: _a ? _width : 0,
             height: _height,
-            color: Colors.black,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [ Color(0xff00bcd4), Color(0xff22133c)],
+      begin: Alignment.centerRight,
+      end: Alignment.centerLeft,
+    )
+
+    ),
           ),
-          Center(
+          const Center(
             child: Text(
               'Welcome to The DevTeam',
               style: TextStyle(
@@ -69,14 +75,14 @@ class SlideTransitionAnimation extends PageRouteBuilder {
   SlideTransitionAnimation(this.page)
       : super(
       pageBuilder: (context, animation, anotherAnimation) => page,
-      transitionDuration: Duration(milliseconds: 2000),
+      transitionDuration: const Duration(milliseconds: 2000),
       transitionsBuilder: (context, animation, anotherAnimation, child) {
         animation = CurvedAnimation(
           curve: Curves.fastLinearToSlowEaseIn,
           parent: animation,
         );
         return SlideTransition(
-          position: Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
+          position: Tween(begin: const Offset(1.0, 0.0), end: const Offset(0.0, 0.0))
               .animate(animation),
           textDirection: TextDirection.rtl,
           child: page,
