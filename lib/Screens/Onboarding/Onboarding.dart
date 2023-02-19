@@ -81,15 +81,17 @@ class _OnboardingState extends State<Onboarding> {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
-                  fontSize: getHeight(30)
+                  fontSize: getHeight(21)
                 ),
 
 
                 ),
                 ),
+               
                 Positioned(left: getWidth(20),
-                  bottom: getHeight(115),child: const Text('We are here to improve your experience as student \nWithout searching and asking for Drives\nEverything you need is here !',
+                  bottom: getHeight(115),child:  Text('We are here to improve your experience as student \nWithout searching and asking for Drives\nEverything you need is here !',
                   style: TextStyle(
+                    fontSize: getHeight(15),
                     color: Colors.white
                   ),
                 ),
@@ -143,15 +145,16 @@ class _OnboardingState extends State<Onboarding> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
-                      fontSize: getHeight(30)
+                      fontSize: getHeight(21)
                   ),
 
 
                 ),
                 ),
                 Positioned(left: getWidth(20),
-                  bottom: getHeight(130),child: const Text('Guess what not only this,We are adding a \nDeveloppers side by giving a roadmap and more',
+                  bottom: getHeight(130),child:  Text('Guess what not only this,We are adding a \nDeveloppers side by giving a roadmap and more',
                   style: TextStyle(
+                    fontSize: getHeight(15),
                       color: Colors.white
                   ),
                 ),
@@ -205,7 +208,7 @@ class _OnboardingState extends State<Onboarding> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
-                      fontSize: getHeight(30)
+                      fontSize: getHeight(23)
                   ),
 
 

@@ -75,6 +75,23 @@ class _FeedPageState extends State<FeedPage> {
                 Padding(
                   padding: EdgeInsets.only(left:getWidth(132)),
                   child: InkWell(
+                    onTap: (){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.green,
+                          content: Center(
+                            child: Text('Sended',
+                              style: TextStyle(
+                                  fontSize: getHeight(18),
+                                  fontWeight: FontWeight.w700
+                              ),
+                            ),
+                          ),
+                          duration: const Duration(seconds: 5),
+                        ),
+                      );
+
+                    },
                     child: Container(
                       height: getHeight(100),
                       width: getWidth(200),

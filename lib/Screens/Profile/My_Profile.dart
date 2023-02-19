@@ -1,6 +1,9 @@
 import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+import '../controllers/Email.dart';
 class MyProfile extends StatefulWidget {
   const MyProfile({Key? key}) : super(key: key);
 
@@ -9,6 +12,10 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
+
+
+  Email _name=Get.find();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -49,7 +56,7 @@ class _MyProfileState extends State<MyProfile> {
                 SizedBox(height: getHeight(10),),
                 Row(
                   children: [
-                    Text('Chakib ouchene',
+                    Text(_name.email.toString(),
                     style: TextStyle(
                       fontSize: getHeight(18),
                       fontWeight: FontWeight.w700
@@ -94,11 +101,12 @@ class _MyProfileState extends State<MyProfile> {
                 child: Icon(Icons.dark_mode_outlined,color: Colors.white,size: getHeight(35),),
               ),
             ),
-          ))
+          )),
 
-        ],
-      ),
+    ]));
 
-    );
   }
+
+
+
 }

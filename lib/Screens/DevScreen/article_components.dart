@@ -143,6 +143,7 @@ class _ArticlePageState extends State<ArticlePage> {
                       ),
                     ),
                   ),
+                  SizedBox(height: getHeight(20),),
 
 
                 ],

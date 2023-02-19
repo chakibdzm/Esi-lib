@@ -6,6 +6,9 @@ import 'package:esilib/size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+import '../controllers/Email.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -33,6 +36,7 @@ class _SigninState extends State<Signin> {
       );
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Color(0xFF1C0BB4),
           content: Text('Welcome Sir',
             style: TextStyle(
                 fontSize: getHeight(16),
@@ -42,10 +46,12 @@ class _SigninState extends State<Signin> {
           duration: const Duration(seconds: 5),
         ),
       );
+      _name.email=_emailController.text;
       // do something with the userCredential, such as storing it in a provider or state
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.red,
           content: Text('Please make sure your Email or Password is correct',
           style: TextStyle(
             fontSize: getHeight(16),
@@ -59,7 +65,7 @@ class _SigninState extends State<Signin> {
     }
   }
 
-
+Email _name=Get.find();
 
 
   @override
@@ -113,7 +119,7 @@ class _SigninState extends State<Signin> {
                   style: TextStyle(
                     fontFamily: 'GTWalsheimPro',
                     fontWeight: FontWeight.w500,
-                    fontSize: getHeight(20),
+                    fontSize: getHeight(18),
                     color: Colors.white,
                   ),
 

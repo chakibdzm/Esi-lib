@@ -46,7 +46,7 @@ class _ModuleDetailsState extends State<ModuleDetails> {
                 ),
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: getWidth(13),
-                  vertical: getHeight(15)),
+                  vertical: getHeight(20)),
                   child: Text(modules[0]['modules'][0]['article'],
                   style: TextStyle(
                     color: Colors.white,

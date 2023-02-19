@@ -45,6 +45,7 @@ class _SignUpState extends State<SignUp> {
       );
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.green,
           content: Text('User Created with Success',
             style: TextStyle(
                 fontSize: getHeight(16),
@@ -60,6 +61,7 @@ class _SignUpState extends State<SignUp> {
       print('Error: ${e.message}');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.red,
           content: Text(e.message.toString(),
             style: TextStyle(
                 fontSize: getHeight(16),

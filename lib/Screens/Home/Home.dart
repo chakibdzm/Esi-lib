@@ -134,8 +134,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: getHeight(15),),
         Expanded(
         child: Padding(padding: EdgeInsets.only(left: getWidth(25),right: getWidth(25)),
-    child:  Flexible(
-    child: NotificationListener<OverscrollIndicatorNotification>(
+    child:  NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (OverscrollIndicatorNotification overscroll) {
           overscroll.disallowGlow();
           return true;
@@ -178,7 +177,6 @@ class _HomePageState extends State<HomePage> {
           )
 
       ),
-    ),
     ),
         ),
         ),

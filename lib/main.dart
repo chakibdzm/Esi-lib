@@ -1,7 +1,7 @@
 import 'package:esilib/Screens/SplashScreen/Spalshscreen.dart';
+import 'package:esilib/Screens/controllers/Email.dart';
 import 'package:esilib/Screens/controllers/articlesController.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ArtController());
+    Get.put(Email());
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,

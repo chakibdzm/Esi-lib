@@ -1,6 +1,7 @@
 
 import 'dart:async';
 import 'package:esilib/Screens/DevScreen/Dev.dart';
+import 'package:esilib/size_config.dart';
 import 'package:flutter/material.dart';
 class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key});
@@ -55,13 +56,16 @@ class _SecondScreenState extends State<SecondScreen> {
 
     ),
           ),
-          const Center(
-            child: Text(
-              'Welcome to The DevTeam',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 30,
-                color:  Colors.white,
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: getWidth(25)),
+            child: Center(
+              child: Text(
+                'Welcome to The DevTeam',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: getHeight(20),
+                  color:  Colors.white,
+                ),
               ),
             ),
           ),

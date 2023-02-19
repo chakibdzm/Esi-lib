@@ -52,7 +52,7 @@ class _ResourcesPageState extends State<ResourcesPage> {
                     decoration: BoxDecoration(
                         color: const Color(0xff0c82df),
                         borderRadius: BorderRadius.circular(getHeight(20))),
-                    child: Padding(padding: EdgeInsets.symmetric(horizontal: getWidth(10),vertical: getHeight(10)),
+                    child: Padding(padding: EdgeInsets.symmetric(horizontal: getWidth(10),vertical: getHeight(20)),
                     child: Text(modules[0]['article'],
                     style: TextStyle(
                       color: Colors.white,
