@@ -39,10 +39,8 @@ class _SignUpState extends State<SignUp> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const Signin()),
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const Signin()));
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.green,
@@ -73,10 +71,6 @@ class _SignUpState extends State<SignUp> {
       );
     }
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {

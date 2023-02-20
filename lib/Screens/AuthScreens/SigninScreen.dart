@@ -30,13 +30,10 @@ class _SigninState extends State<Signin> {
         password: _passwordController.text,
 
       );
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => BottomNav()),
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => BottomNav()));
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: Color(0xFF1C0BB4),
+          backgroundColor: const Color(0xFF1C0BB4),
           content: Text('Welcome Sir',
             style: TextStyle(
                 fontSize: getHeight(16),

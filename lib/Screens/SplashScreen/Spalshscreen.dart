@@ -1,4 +1,3 @@
-
 import 'package:animations/animations.dart';
 import 'package:esilib/Screens/Onboarding/Onboarding.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,9 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +54,11 @@ class _MyWidgetState extends State<MyWidget> {
       ),
     );
   }
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
 }
 
 class SecondPage extends StatefulWidget {
@@ -125,6 +132,7 @@ class _SecondPageState extends State<SecondPage> {
       });
     });
     Timer(const Duration(milliseconds: 4000), () {
+
       Navigator.of(context).pushReplacement(
         ThisIsFadeRoute(
           route: const Onboarding(), page: const Onboarding(),

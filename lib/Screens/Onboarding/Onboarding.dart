@@ -181,10 +181,8 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 Positioned(bottom: getHeight(40),
                   left: getWidth(20),child: InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Signin())),
+                  onTap: () =>
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const Signin())),
                   child: Container(
                     height: getHeight(50),
                     width: getWidth(150),
